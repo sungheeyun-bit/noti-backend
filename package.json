@@ -4,16 +4,33 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node -r esm src/index.js",
+    "start:dev": "nodemon --watch src/ -r esm src/index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@koa/cors": "^4.0.0",
+    "@koa/multer": "^3.0.2",
+    "axios": "^0.21.1",
+    "bcrypt": "^5.1.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
     "eslint-config-prettier": "^8.5.0",
-    "koa": "^2.13.4"
+    "esm": "^3.2.25",
+    "joi": "^17.7.0",
+    "jsonwebtoken": "^8.5.1",
+    "koa": "^2.13.4",
+    "koa-bodyparser": "^4.3.0",
+    "koa-mount": "^4.0.0",
+    "koa-router": "^12.0.0",
+    "koa-static": "^5.0.0",
+    "moment": "^2.29.4",
+    "mongoose": "^6.7.5"
   },
   "devDependencies": {
-    "eslint": "^8.28.0"
+    "eslint": "^8.28.0",
+    "nodemon": "^2.0.20"
   }
 }
