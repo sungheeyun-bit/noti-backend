@@ -27,12 +27,7 @@ mongoose
 const app = new Koa();
 const router = new Router();
 
-const corsOptions = {
-  credentials: true,
-};
-
-app.proxy = true;
-api.use(cors(corsOptions));
+api.use(cors());
 
 router.use('/api', api.routes());
 

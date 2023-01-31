@@ -2,7 +2,9 @@ import jwt from 'jsonwebtoken';
 import User from '../models/user';
 
 const jwtMiddleware = async (ctx, next) => {
+  console.log('ctx', ctx);
   const token = ctx.cookies.get('access_token');
+  console.log('토큰', token);
   if (!token) return next();
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
@@ -19,6 +21,8 @@ const jwtMiddleware = async (ctx, next) => {
       ctx.cookies.set('access_token', token, {
         maxAge: 1000 * 60 * 60 * 24 * 7,
         httpOnly: true,
+        sameSite: 'none',
+        secure: true,
       });
     }
     return next();
