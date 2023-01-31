@@ -41,6 +41,10 @@ app.use(jwtMiddleware);
 
 app.use(router.routes()).use(router.allowedMethods());
 
+app.use((ctx) => {
+  ctx.body = 'Hello World';
+});
+
 app.use(mount('/uploads', serve('uploads')));
 
 const port = PORT || 4000;
