@@ -27,8 +27,6 @@ mongoose
 const app = new Koa();
 const router = new Router();
 
-api.use(cors());
-
 router.use('/api', api.routes());
 
 app.use(bodyParser());
@@ -40,6 +38,7 @@ app.use((ctx) => {
   ctx.body = 'Hello World';
 });
 
+api.use(cors());
 app.use(mount('/uploads', serve('uploads')));
 
 const port = PORT || 4000;
