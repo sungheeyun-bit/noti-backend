@@ -29,10 +29,13 @@ const router = new Router();
 
 app.use(
   cors({
-    origin: true,
+    origin: 'https://port-0-noti-backend-1jx7m2gldfqxa36.gksl2.cloudtype.app/',
     credentials: true,
   }),
 );
+
+app.proxy = true;
+
 
 router.use('/api', api.routes());
 
