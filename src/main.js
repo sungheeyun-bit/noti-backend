@@ -27,17 +27,8 @@ mongoose
 const app = new Koa();
 const router = new Router();
 
-app.use(
-  cors({
-    origin: 'https://port-0-noti-backend-1jx7m2gldfqxa36.gksl2.cloudtype.app/',
-    credentials: true,
-  }),
-);
-
-app.proxy = true;
-
-
 router.use('/api', api.routes());
+app.use(cors());
 
 app.use(bodyParser());
 app.use(jwtMiddleware);
@@ -48,6 +39,7 @@ app.use((ctx) => {
   ctx.body = 'Hello World';
 });
 
+app.proxy = true;
 app.use(mount('/uploads', serve('uploads')));
 
 const port = PORT || 4000;
