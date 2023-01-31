@@ -38,6 +38,7 @@ app.use((ctx) => {
   ctx.body = 'Hello World';
 });
 
+app.proxy = true;
 api.use(cors());
 app.use(mount('/uploads', serve('uploads')));
 
