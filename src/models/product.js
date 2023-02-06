@@ -1,10 +1,6 @@
 import mongoose, { Schema } from 'mongoose';
 
 const ProductSchema = new Schema({
-  user: {
-    type: Schema.Types.ObjectId,
-    ref: 'User',
-  },
   brand: String,
   productName: String,
   engProductName: String,
