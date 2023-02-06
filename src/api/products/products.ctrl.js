@@ -34,7 +34,9 @@ export const detailProduct = async (ctx) => {
 
 export const addProduct = async (ctx) => {
   const schema = Joi.object().keys({
+    brand: Joi.string().required(),
     productName: Joi.string().required(),
+    engProductName: Joi.string().required(),
     brandPage: Joi.string().required(),
     price: Joi.number().required(),
     releaseDate: Joi.date(),
@@ -47,7 +49,15 @@ export const addProduct = async (ctx) => {
     ctx.body = result.error;
     return;
   }
-  const product = new Product(ctx.request.body);
+
+  const { price } = ctx.request.body;
+
+  const newProduct = {
+    ...ctx.request.body,
+    price: Number(price).toLocaleString(),
+  };
+
+  const product = new Product(newProduct);
 
   try {
     await product.save();
@@ -116,4 +126,3 @@ export const image = async (ctx) => {
     fileName: filename,
   };
 };
-

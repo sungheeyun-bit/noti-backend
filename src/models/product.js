@@ -1,37 +1,31 @@
 import mongoose, { Schema } from 'mongoose';
 
-const CommentSchema = new Schema({
-  nickname: String,
-  body: String,
-  state: {
-    type: Number,
-    default: 0,
-  },
-  goodCount: Number,
-  goodUsers: [String],
-});
-
 const ProductSchema = new Schema({
   user: {
     type: Schema.Types.ObjectId,
     ref: 'User',
   },
+  brand: String,
   productName: String,
+  engProductName: String,
   brandPage: String,
-  price: Number,
+  price: String,
   releaseDate: {
     type: Date,
   },
   images: [],
   leftDay: Number,
-  comments: [CommentSchema],
   alarm: {
     type: Boolean,
     default: true,
   },
 });
 
-ProductSchema.index({ productName: 'text' });
+ProductSchema.index({
+  engProductName: 'text',
+  productName: 'text',
+  brand: 'text',
+});
 
 const Product = mongoose.model('Product', ProductSchema);
 export default Product;

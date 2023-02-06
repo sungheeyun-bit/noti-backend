@@ -7,7 +7,6 @@ const UserSchema = new Schema({
   social: {
     google: {
       id: String,
-      accessToken: String,
     },
   },
   hashedPassword: String,
