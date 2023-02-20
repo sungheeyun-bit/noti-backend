@@ -18,6 +18,7 @@ products.post('/productList', productsCtrl.productList);
 products.post('/upload', isAdmin, productsCtrl.addProduct);
 
 products.post('/image', upload.single('file'), productsCtrl.image);
+
 products.get(
   '/detail/:id',
   productsCtrl.getProductById,

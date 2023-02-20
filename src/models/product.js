@@ -25,3 +25,5 @@ ProductSchema.index({
 
 const Product = mongoose.model('Product', ProductSchema);
 export default Product;
+
+

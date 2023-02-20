@@ -103,7 +103,7 @@ export const productList = async (ctx) => {
         ctx.status = 400;
         return;
       }
-
+      console.log('제품리스트', products);
       ctx.body = { products, postSize: products.length };
     }
   } catch (e) {
